@@ -11,8 +11,8 @@ const PORT = 9000
 const app = express()
 
 app.use(cors()) // localhost:3000   /----> localhost:9000 (unser backend) get /users
-                //         |       /
-                // <react frontend>
+    //         |       /
+    // <react frontend>
 
 app.use(express.json()) // body parser...
 
@@ -20,7 +20,9 @@ app.use((req, _, next) => {
     console.log("new req –", req.method, req.url)
     next()
 })
-
+app.get("/", (req, res) => {
+    res.send("<h6>..it works entirely so very well..:</h6>")
+})
 app.get("/users", (req, res) => {
     res.json(usersArray)
 })
@@ -30,8 +32,8 @@ app.post("/newUser",
     (req, res) => {
         const user = req.body
         const lastId = usersArray[usersArray.length - 1] ? usersArray[usersArray.length - 1].id : 1
-        const userWithId = { ...user, id: lastId + 1 } // spread operator
-        
+        const userWithId = {...user, id: lastId + 1 } // spread operator
+
         usersArray.push(userWithId)
         res.json(usersArray)
     }
