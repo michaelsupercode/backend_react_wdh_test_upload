@@ -1,13 +1,11 @@
 import { useState } from "react";
 
 function fetchJoinCommunity(name, username) {
-    // RETURN DIE PROMISE VOM FETCH...
     return fetch("http://localhost:9000/newUser", {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
+        method: 'POST',
+        mode: 'cors', 
         headers: { 'Content-Type': 'application/json' },
-        // redirect: 'follow', // manual, *follow, error
-        body: JSON.stringify({ name, username }) // body data type must match "Content-Type" header
+        body: JSON.stringify({ name, username }) 
       })
 }
 
@@ -16,7 +14,7 @@ const JoinCommunityForm = (props) => {
     const [username, setUsername] = useState("")
 
     const joinCommunity = (event) => {
-        event.preventDefault() // verhindere dein standard-verhalten aka. Page reload bei form submit
+        event.preventDefault() 
 
         fetchJoinCommunity(name, username)
         .then((response) => response.json())
@@ -38,7 +36,7 @@ const JoinCommunityForm = (props) => {
                 <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
             </label>
             <br/>
-            <button onClick={joinCommunity}>Join Teufelsrochen Now!</button>
+            <button onClick={joinCommunity}>Join Now!</button>
         </form>
     );
 }
