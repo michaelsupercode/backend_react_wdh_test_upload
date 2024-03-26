@@ -19,7 +19,7 @@ app.use((req, _, next) => {
     next()
 })
 app.get("/", (req, res) => {
-    res.send("<h6>..it works entirely so very well..:</h6>")
+    res.send("<h6>..it works so entirely very well..:</h6>")
 })
 app.get("/users", (req, res) => {
     res.json(usersArray)
