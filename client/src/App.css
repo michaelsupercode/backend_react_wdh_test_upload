@@ -1,3 +1,7 @@
+.root {
+width: 999em;
+}
+
 body {
     background-color: #302828;
 }
@@ -8,8 +12,13 @@ body {
     background-color: #302828;
     color: #fff;
     text-align: center;
-    height: 100vh;
+    height: 80vh;
     border: 1px dotted#fff;
+}
+
+form {
+    width: 20vw;
+    margin-left: 38%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -19,7 +28,7 @@ body {
 }
 
 .App-header {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,11 +36,8 @@ body {
     font-size: calc(10px + 2vmin);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+h6 {
+    margin: 5vh;
+    text-align: center;
+    color: white;
     }
-    to {
-        transform: rotate(360deg);
-    }
-}
