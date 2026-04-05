@@ -1,10 +1,5 @@
-import { useState } from 'react'
-
-const Counter = (props) => {
-    const [counter, setCounter] = useState(1)
-    const incrementCounter = () => setCounter(counter + 1)
-
-    return <h1 onClick = { incrementCounter } > { counter } </h1>
+const Counter = ({ count }) => {
+    return <h6>Entries: {count}</h6>
 }
 
 export default Counter;

@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <JoinCommunityForm setUsers={setUsers} />
       <UserList users={users} setUsers={setUsers} />
-      <Counter/>
+      <Counter count={users.length} />
     </div>
   );
 }

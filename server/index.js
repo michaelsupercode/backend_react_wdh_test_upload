@@ -7,6 +7,8 @@ const usersArray = [
     { id: 3, name: "Peter", username: "peter" },
 ]
 
+const getUsersNewestFirst = () => [...usersArray].sort((a, b) => b.id - a.id)
+
 const PORT = 9000
 const app = express()
 
@@ -22,17 +24,17 @@ app.get("/", (req, res) => {
     res.send("<h6>..it works so entirely very well..:</h6>")
 })
 app.get("/users", (req, res) => {
-    res.json(usersArray)
+    res.json(getUsersNewestFirst())
 })
 
 app.post("/newUser",
     (req, res) => {
         const user = req.body
-        const lastId = usersArray[usersArray.length - 1] ? usersArray[usersArray.length - 1].id : 1
-        const userWithId = {...user, id: lastId + 1 } 
+        const maxId = usersArray.reduce((max, currentUser) => Math.max(max, currentUser.id), 0)
+        const userWithId = {...user, id: maxId + 1 } 
 
         usersArray.push(userWithId)
-        res.json(usersArray)
+        res.json(getUsersNewestFirst())
     }
 )
 

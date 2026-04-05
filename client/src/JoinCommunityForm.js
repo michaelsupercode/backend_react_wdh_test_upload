@@ -21,11 +21,13 @@ const JoinCommunityForm = (props) => {
         .then((updatedUsersArray) => {
             console.log(updatedUsersArray)
             props.setUsers(updatedUsersArray)
+            setName("")
+            setUsername("")
         })
     }
 
     return (
-        <form>
+        <form onSubmit={joinCommunity}>
             <label>
                 Name:
                 <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
@@ -36,7 +38,7 @@ const JoinCommunityForm = (props) => {
                 <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
             </label>
             <br/>
-            <button onClick={joinCommunity}>Join Now!</button>
+            <button type="submit">Join Now!</button>
         </form>
     );
 }
